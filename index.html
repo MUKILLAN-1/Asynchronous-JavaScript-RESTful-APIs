@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Modern Weather Dashboard</title>
+    <meta name="description" content="A real-time weather dashboard with glassmorphism design.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="dashboard-container">
+        <header class="search-header">
+            <h1>SkyCast</h1>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Search city..." autocomplete="off">
+                <button id="searchBtn" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <section id="weatherContent" class="weather-content hidden">
+            <div class="main-card glass">
+                <div class="location-info">
+                    <h2 id="cityName">London</h2>
+                    <p id="countryName">UK</p>
+                </div>
+                <div class="temp-container">
+                    <span id="temperature">--</span><span class="unit">°C</span>
+                </div>
+                <div class="weather-desc" id="weatherDesc">Cloudy</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card glass">
+                    <div class="stat-icon humidity">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Humidity</p>
+                        <p class="stat-value" id="humidity">--%</p>
+                    </div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-icon wind">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Wind Speed</p>
+                        <p class="stat-value" id="windSpeed">-- km/h</p>
+                    </div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-icon precipitation">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M20 12h2M4 12H2M17.657 17.657l1.414 1.414M4.929 4.929l1.414 1.414M12 20v2M17.657 6.343l1.414-1.414M4.929 19.071l1.414-1.414"></path></svg>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Precipitation</p>
+                        <p class="stat-value" id="precipitation">-- mm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="loader" class="loader hidden"></div>
+        <div id="errorMessage" class="error-message hidden">
+            Could not find city. Please try again.
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
